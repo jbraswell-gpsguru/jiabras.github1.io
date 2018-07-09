@@ -1,0 +1,23 @@
+
+          <div class='session' id='sliderbar'>
+  <h2>Year: <label id='active-year'>Active Year</label></h2>
+  <input id='slider' class='row' type='range' min='1970' max='2016' step='1' value='1970' />
+          </div>
+
+
+<script>
+
+
+
+    
+    
+document.getElementById('slider').addEventListener('input', function(e) {
+  var year = parseInt(e.target.value);
+  // update the map
+  map.setFilter('geojsonVarName', ['==', ['number', ['get', 'Year']], year]);
+
+  // update text in the UI
+  document.getElementById('active-year').innerText = year
+});   
+    
+</script>
